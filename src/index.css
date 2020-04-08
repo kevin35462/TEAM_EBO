@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.twentyonequestion .question:hover{
+  text-decoration:underline;
+}
+
+.spark {
+  background-color: #ffcccc;
+}
+
+.spark img{
+  width: 100%;
+  max-height: auto;
+}
+
+.spark .list {
+  position: relative;
+  float: right;
+  left: 550px;
+}
+
+.spark .blurb {
+  position: relative;
+  width: 700px;
+  bottom: 450px;
+  border-style: dashed;
+  float: right;
+}
+
+.war {
+  text-align: center;
+}
+
+.war .playerTwo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.war .number {
+  font-size: 6.5em;
+}
+
+.mafia {
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+.mafia p{
+ vertical-align: text-top;
+ font-family: "Times New Roman", Times, serif;
+ font-size:30px;
+ color:	white;
+}
+.mafia .color {
+   background-color:white;
+   color: black;
+   font-size: 30px;
+   font-family: "Times New Roman", Times, serif;
+   border-radius: 8px;
+}
+
+
+.pokemon #mainTitle {
+  text-align: center;
+}
+
+.pokemon {
+  height:1000px;
+  background-image: url("https://img00.deviantart.net/0343/i/2013/048/b/b/pokemon_wallpaper___pikachu_by_kennedyzak-d5vb6hq.png");
+}
+
+.pokemon .playerImage{
+  width:160px;
+}
+
+.pokemon .playerTwo{
+  float:right;
+}
+
+.pokemon #sub-title {
+text-align: center;
+color: red;
+}
+
+.pokemon #mainBox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.pokemon #mainBox .battleImage{
+  height:150px
+}
+
+.pokemon .playerTwo #playerInfo2{
+position: absolute;
+top: 22%;
+left: 75%;
+}
+
+.pokemon .playerOne .fixed-btns {
+display: flex;
+margin: 0 auto;
+}
+
+.pokemon .playerTwo .fixed-btns {
+  display: flex;
+  margin: 0 auto;
+  }
