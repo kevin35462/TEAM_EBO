@@ -1,6 +1,8 @@
 Code Nation Studio Multiplayer Game
 ===================================
 
+Team EBO
+
 **React/Firebase project designed for [Code Nation][code-nation] students**
 
 Students will implement a React/Firebase app that requires collaboration
