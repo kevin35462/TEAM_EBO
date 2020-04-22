@@ -1,0 +1,35 @@
+body
+{
+        background-color: pink;
+}
+
+.titleScreen {
+    background-image: url('/imgs/titleScreen.jpg');
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+}
+
+.buttons {
+    background-color: black;
+    position: absolute;
+    top: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 150px;
+
+}
+
+.beginning {
+    width: 300px;
+    height: 100px;
+    font-size: 2em;
+    color: aqua;
+    background-color: black;
+}
+
+.beginning:hover{
+    border: aqua solid 5px;
+}
