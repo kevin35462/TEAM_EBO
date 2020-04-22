@@ -2,20 +2,47 @@ import Button from '@material-ui/core/Button';
 import GameComponent from '../../GameComponent.js';
 import React from 'react';
 import UserApi from '../../UserApi.js';
+import { TitleScreen } from "./TitleScreen";
+import { GameScreen } from "./GameScreen";
 import './DuckHunt.css';
 
-// const State = {
-//   EMPTY: " ",
-//   X: "X",
-//   O: "0",
-// };
+function getCurrentScreen(currentScreen) {
+  let CurrentScreen;
+
+  switch (currentScreen) {
+    case 'title': {
+      CurrentScreen = (
+        <TitleScreen
+          handleClick={this.handleClick}
+          currentUser={this.state.currentUser}
+        />
+      )
+      break;
+    }
+
+    case 'game': {
+      CurrentScreen = (
+        <GameScreen />
+      );
+      break;
+    }
+
+    default: {
+      CurrentScreen = (
+        `What? how did we get here? currentScreen is set to: ${this.state.currentScreen}`
+      )
+    }
+  }
+
+  return CurrentScreen;
+}
 
 export default class DuckHunt extends GameComponent {
   constructor(props) {
     super(props);
     this.state = {
       currentUser: this.getSessionCreatorUserId(),
-      currentPage: 'title',
+      currentScreen: 'title', // game
     };
   }
 
@@ -37,28 +64,17 @@ export default class DuckHunt extends GameComponent {
   // }
   handleClick = (event) => {
     console.log('WOWOWOW');
+    this.setState({
+      currentScreen: 'game',
+    });
   }
 
   render() {
-    const TitlePage = () => {
-      return (
-      <div className="titleScreen">
-        <div className="buttons">
-          <button className="beginning" onClick={this.handleClick}>START</button>
-        </div>
-        <h1>DUCK HUNT</h1>
-        <p>WOWOWOW</p>
-        {this.state.currentUser}
+    const CurrentScreen = getCurrentScreen(this.state.currentScreen);
 
-      </div>
-      )
-    }
     return (
       <div className="allPages">
-        {this.state.currentPage === 'title'
-          ? <TitlePage/> 
-          : 'Not Title page ahhhh' //To do next week!
-        }
+        {CurrentScreen}
       </div>
     );
   }
