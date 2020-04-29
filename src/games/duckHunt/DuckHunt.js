@@ -6,37 +6,6 @@ import { TitleScreen } from "./TitleScreen";
 import { GameScreen } from "./GameScreen";
 import './DuckHunt.css';
 
-function getCurrentScreen(currentScreen) {
-  let CurrentScreen;
-
-  switch (currentScreen) {
-    case 'title': {
-      CurrentScreen = (
-        <TitleScreen
-          handleClick={this.handleClick}
-          currentUser={this.state.currentUser}
-        />
-      )
-      break;
-    }
-
-    case 'game': {
-      CurrentScreen = (
-        <GameScreen />
-      );
-      break;
-    }
-
-    default: {
-      CurrentScreen = (
-        `What? how did we get here? currentScreen is set to: ${this.state.currentScreen}`
-      )
-    }
-  }
-
-  return CurrentScreen;
-}
-
 export default class DuckHunt extends GameComponent {
   constructor(props) {
     super(props);
@@ -70,7 +39,32 @@ export default class DuckHunt extends GameComponent {
   }
 
   render() {
-    const CurrentScreen = getCurrentScreen(this.state.currentScreen);
+    let CurrentScreen;
+
+    switch (this.state.currentScreen) {
+      case 'title': {
+        CurrentScreen = (
+          <TitleScreen
+            handleClick={this.handleClick}
+            currentUser={this.state.currentUser}
+          />
+        )
+        break;
+      }
+  
+      case 'game': {
+        CurrentScreen = (
+          <GameScreen />
+        );
+        break;
+      }
+  
+      default: {
+        CurrentScreen = (
+          `What? how did we get here? currentScreen is set to: ${this.state.currentScreen}`
+        )
+      }
+    }
 
     return (
       <div className="allPages">
