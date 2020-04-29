@@ -3,12 +3,16 @@ body
         background-color: pink;
 }
 
+.screen {
+  width: 1280px;
+  height: 720px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
 .titleScreen {
     background-image: url('/imgs/titleScreen.jpg');
-    overflow: hidden;
-    width: 1280px;
-    height: 720px;
-    position: relative;
     color: white;
 }
 

@@ -3,8 +3,8 @@ import React from "react";
 // a React "function component"
 const GameScreen = (props) => {
   return (
-    <div className="gameScreen">
-      This is the game screen
+    <div className="screen gameScreen">
+      <img src="/imgs/duck-hunt-bg.gif" />
     </div>
   )
 };

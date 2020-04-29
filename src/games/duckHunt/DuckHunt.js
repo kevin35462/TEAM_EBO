@@ -4,6 +4,7 @@ import React from 'react';
 import UserApi from '../../UserApi.js';
 import { TitleScreen } from "./TitleScreen";
 import { GameScreen } from "./GameScreen";
+import { ScoreBoard } from "./ScoreBoard";
 import './DuckHunt.css';
 
 export default class DuckHunt extends GameComponent {
@@ -11,7 +12,7 @@ export default class DuckHunt extends GameComponent {
     super(props);
     this.state = {
       currentUser: this.getSessionCreatorUserId(),
-      currentScreen: 'title', // game
+      currentScreen: 'scoreboard', // game
     };
   }
 
@@ -55,6 +56,13 @@ export default class DuckHunt extends GameComponent {
       case 'game': {
         CurrentScreen = (
           <GameScreen />
+        );
+        break;
+      }
+
+      case 'scoreboard': {
+        CurrentScreen = (
+          <ScoreBoard />
         );
         break;
       }

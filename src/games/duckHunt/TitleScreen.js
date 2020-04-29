@@ -3,7 +3,7 @@ import React from 'react';
 // a React "function component"
 const TitleScreen = (props) => {
   return (
-    <div className="titleScreen">
+    <div className="screen titleScreen">
       <div className="buttons">
         <button
           className="startGameButton"
