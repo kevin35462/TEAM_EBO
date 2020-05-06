@@ -35,6 +35,31 @@ body
     background-color: black;
 }
 
+.rank-score-name-section-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 600px;
+    
+}
+
+.user-score {
+    text-align: center;
+    align-items: center;
+
+}
+
+.user-rank {
+    text-align: left;
+    align-items: left;
+
+}
+
+.user-name {
+    text-align: right;
+    align-items: right;
+}
+
 .startGameButton:hover{
     border: aqua solid 5px;
 }
@@ -53,5 +78,10 @@ body
 }
 
 .scoreBoard {
-    font-size: 24px
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    background-color: black
 }

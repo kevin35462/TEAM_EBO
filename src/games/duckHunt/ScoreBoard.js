@@ -1,7 +1,7 @@
 import React from "react";
 
-const ScoreRow = ({ rank, score, name }) => (
-  <div className="rank-score-name-section-row">
+const ScoreRow = ({ rank, score, name, className }) => (
+  <div className={"rank-score-name-section-row " + className}>
     <div className="user-rank">{rank}</div>
     <div className="user-score">{score}</div>
     <div className="user-name">{name}</div>
@@ -28,27 +28,6 @@ const ScoreBoard = (props) => {
 
   return (
     <div className="screen scoreBoard">
-      This is the score board.
-      {/* 
-      - make text 32 px font (large font)
-      Code parts of the scoreboard:
-        x insert-coin-header
-          - make text blue
-        x player-credits-2-col-section
-          - text white
-          x player-credits-2-col-section-col-1
-          x player-credits-2-col-section-col-2
-        x encouragement-comment
-        x rank-score-name-section
-          - make text blue
-          - make first row text pink
-          - make all scores orange
-          x rank
-          x name
-          x score
-        - credits-count
-          - text white
-       */}
       <div className="insert-coin-header blueText">
         Insert Coin
        </div>
@@ -72,7 +51,7 @@ const ScoreBoard = (props) => {
           const rankNumber = index + 1;
           return (
           <ScoreRow
-            className={rankNumber === 1 ? true : false}
+            className={rankNumber === 1 ? 'pinkText' : 'orangeText'}
             rank={rankNumber}
             score={userRank.score}
             name={userRank.name}
