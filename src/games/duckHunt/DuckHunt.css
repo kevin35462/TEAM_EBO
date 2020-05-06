@@ -38,3 +38,20 @@ body
 .startGameButton:hover{
     border: aqua solid 5px;
 }
+
+.blueText {
+    color: blue
+}
+.whiteText {
+    color: white
+}
+.orangeText {
+    color: orange
+}
+.pinkText {
+    color: pink
+}
+
+.scoreBoard {
+    font-size: 24px
+}
