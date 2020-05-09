@@ -76,7 +76,7 @@ export default class DuckHunt extends GameComponent {
 
     return (
       <div className="allPages">
-        {CurrentScreen}
+         <GameScreen />
       </div>
     );
   }

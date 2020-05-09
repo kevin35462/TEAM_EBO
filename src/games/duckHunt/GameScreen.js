@@ -1,10 +1,11 @@
 import React from "react";
+import { DuckSprite } from "./DuckSprite.js";
 
 // a React "function component"
 const GameScreen = (props) => {
   return (
     <div className="screen gameScreen">
-      <img src="/imgs/duck-hunt-bg.gif" />
+      <DuckSprite />
     </div>
   )
 };
