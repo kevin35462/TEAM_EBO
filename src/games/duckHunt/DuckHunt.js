@@ -5,6 +5,7 @@ import UserApi from '../../UserApi.js';
 import { TitleScreen } from "./TitleScreen";
 import { GameScreen } from "./GameScreen";
 import { ScoreBoard } from "./ScoreBoard";
+
 import './DuckHunt.css';
 
 export default class DuckHunt extends GameComponent {
@@ -39,44 +40,45 @@ export default class DuckHunt extends GameComponent {
     });
   }
 
+  duckClick = () => {
+    console.log("Duck Was Clicked");
+  }
+
+  addPoints = () => {
+    const gameScore = {};
+    gameScore[this.state.currentUser] = this.state.score;
+    this.getSessionDatabaseRef().set(gameScore, (error) => {
+      if (error) {
+        console.error("Error updating DuckHunt state", error);
+      }
+    });
+  }
+
+
+
   render() {
-    let CurrentScreen;
-
-    switch (this.state.currentScreen) {
-      case 'title': {
-        CurrentScreen = (
-          <TitleScreen
-            handleClick={this.handleClick}
-            currentUser={this.state.currentUser}
-          />
-        )
-        break;
-      }
-  
-      case 'game': {
-        CurrentScreen = (
-          <GameScreen />
-        );
-        break;
-      }
-
-      case 'scoreboard': {
-        CurrentScreen = (
-          <ScoreBoard />
-        );
-        break;
-      }
-  
-      default: {
-        CurrentScreen = (
-          `What? how did we get here? currentScreen is set to: ${this.state.currentScreen}`
-        )
-      }
-    }
-
+    const pages = {
+      'title': (
+        <TitleScreen
+          handleClick={this.handleClick}
+          currentUser={this.state.currentUser}
+        />
+      ),
+      'game': (
+        <GameScreen duckClick={this.duckClick} />
+      ),
+      'scoreboard': (
+        <ScoreBoard />
+      ),
+      'default': (
+        `What? how did we get here? currentScreen is set to: ${this.state.currentScreen}`
+      )
+    };
+    const selectedPage = pages[this.state.currentScreen];
+    const CurrentScreen = selectedPage ? selectedPage : pages.default;
     return (
       <div className="allPages">
-         <GameScreen />
+         <CurrentScreen />
       </div>
     );
   }

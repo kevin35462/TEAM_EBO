@@ -100,15 +100,25 @@ body {
       background-position-x:  -35px;
     }
   }
+  @keyframes duck-movement {
+    from {
+      left: 0%
+    }
+    to {
+      left: 100%
+    }
+  }
 
 .DuckSprite{
     background-image: url("/imgs/duckSprite.png");
-    animation-timing-function: steps(1, end);
-    animation-fill-mode: forwards;
+    /* animation-timing-function: steps(1, end); */
+    /* animation: duck-movement 3s linear infinite; */
+    /* animation-fill-mode: forwards; */
+    position: absolute;
     background-position-y: -85px;
     width: 35px;
     height: 37px;
-    animation: moveX 3s linear forwards;
+    /* animation: moveX 3s linear forwards; */
 
 }
 

@@ -1,17 +1,13 @@
 import React from 'react';
 
 
-const DuckSprite = () => {
-
-  const duckClick = () => {
-        console.log("I was Clicked");
-    }
-
+const DuckSprite = (props) => {
+    console.log(props);
     return (
-        <div className="DuckSprite" onClick = {duckClick}>
+        <div className="DuckSprite" onClick={props.duckClick}>
 
         </div>
-    
+
     )
 }
 /*keyFrames
