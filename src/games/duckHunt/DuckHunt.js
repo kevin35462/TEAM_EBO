@@ -11,15 +11,25 @@ import './DuckHunt.css';
 export default class DuckHunt extends GameComponent {
   constructor(props) {
     super(props);
+    console.log(this.getSessionDatabaseRef().database.app)
+    const currentUser = this.getMyUserId()
     this.state = {
-      currentUser: this.getSessionCreatorUserId(),
-      currentScreen: 'scoreboard', // game
+      currentUser: currentUser,
+      currentScreen: 'game', // game
+      gameScore: {
+        [currentUser]: 0
+      },
     };
   }
 
   onSessionDataChanged(data) {
+    // this function runs everytime the datebase changes
+    // data is the latest date from database
+    console.log(data)
     this.setState({
       currentUser: data.current_user,
+      gameScore: data.gameScore ? data.gameScore : this.state.gameScore
+      ,
     });
   }
 
@@ -42,12 +52,21 @@ export default class DuckHunt extends GameComponent {
 
   duckClick = () => {
     console.log("Duck Was Clicked");
+    // this.addPoints(1);
+    const currentScore = this.state.gameScore[this.getMyUserId()]
+    console.log("addPoints 1 to" + currentScore)
+    const gameScore = { [this.getMyUserId()]: currentScore + 1 }
+    this.setState({gameScore}); 
   }
 
-  addPoints = () => {
-    const gameScore = {};
-    gameScore[this.state.currentUser] = this.state.score;
+  addPoints = (points) => {
+    const currentScore = this.state.gameScore[this.getMyUserId()]
+    console.log("addPoints" + points + " to " + currentScore)
+    const gameScore = { [this.getMyUserId()]: currentScore + points }
+    this.setState({gameScore}); 
+    console.log(this)
     this.getSessionDatabaseRef().set(gameScore, (error) => {
+      console.log("updatedDatabase")
       if (error) {
         console.error("Error updating DuckHunt state", error);
       }
@@ -57,6 +76,7 @@ export default class DuckHunt extends GameComponent {
 
 
   render() {
+    console.log(this.state.gameScore)
     const pages = {
       'title': (
         <TitleScreen
@@ -76,9 +96,12 @@ export default class DuckHunt extends GameComponent {
     };
     const selectedPage = pages[this.state.currentScreen];
     const CurrentScreen = selectedPage ? selectedPage : pages.default;
+    const currentScore = this.state.gameScore[this.getMyUserId()]
     return (
       <div className="allPages">
-         <CurrentScreen />
+        <GameScreen 
+        duckClick={this.duckClick}
+        currentScore={currentScore}/>
       </div>
     );
   }

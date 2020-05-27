@@ -109,17 +109,30 @@ body {
     }
   }
 
-.DuckSprite{
-    background-image: url("/imgs/duckSprite.png");
-    /* animation-timing-function: steps(1, end); */
-    /* animation: duck-movement 3s linear infinite; */
-    /* animation-fill-mode: forwards; */
-    position: absolute;
-    background-position-y: -85px;
-    width: 35px;
-    height: 37px;
-    /* animation: moveX 3s linear forwards; */
 
+.DuckSprite{
+    
+    background-image: url("/imgs/DuckHuntDuckGif.gif");
+    background-size:35px;
+    transition: left 3s linear;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 0%;
 }
 
+.duckMove{
+    left: 100%;
+}
+
+.duckhuntscore {
+    text-align: center;
+    height: 20px;
+    width: 115px;
+    background-color: purple;
+    color: yellow;
+    position: absolute;
+    bottom: 47px;
+    right: 39px;
+}
 /*testing git*/
