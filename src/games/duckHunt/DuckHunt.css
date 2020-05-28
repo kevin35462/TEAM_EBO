@@ -110,19 +110,21 @@ body {
   }
 
 
-.DuckSprite{
-    
+.DuckSprite {
     background-image: url("/imgs/DuckHuntDuckGif.gif");
     background-size:35px;
-    transition: left 3s linear;
     position: absolute;
     width: 35px;
     height: 35px;
-    left: 0%;
+    left: -5%;
 }
 
 .duckMove{
-    left: 100%;
+  left: 100%;
+}
+
+.duckReset {
+  transition: none;
 }
 
 .duckhuntscore {
